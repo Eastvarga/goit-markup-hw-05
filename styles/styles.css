@@ -579,11 +579,9 @@ a {
 с центрированием элементов по горизонтали*/
 .container.filter {
   padding: 94px 0 50px;
-  justify-content: center;
 }
 .filter-list {
-  display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 /* filter button задаем шрифты и геометрию кнопок */
 .button {
@@ -617,22 +615,45 @@ a {
 .container.projects {
   padding-bottom: 94px;
 }
-/* делаем из списка флекс элемент 
-с возможностью переноса на другую строку */
-.projects-list,
-.projects-list li {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 /* задаем ширину контента для 3 элементов в строке */
 .projects-list > li {
   width: calc((100% - 30px * 2) / 3);
 }
 /* задаем границы ссылкам */
 .projects-link {
+  display: block;
   width: 100%;
   background-color: var(--white-color);
-  border: 1px solid #eeeeee;
+}
+/* тумба для картинок с описанием */
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+/* описание картинок спрятаное по умолчанию */
+.img-title {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  /* transform: translate(100%); */
+
+  height: 100%;
+  width: 100%;
+  padding: 64px 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  background: rgba(33, 150, 243, 0.9);
+  color: #ffffff;
+}
+
+/* pflftv y */
+.projects-link:hover .img-title {
+  transform: translateY(-100%);
 }
 /* задаем тени при наведении фокусе */
 .projects-link:hover,
@@ -646,6 +667,8 @@ a {
   margin: 0;
   padding: 20px 24px;
   text-align: left;
+  border: 1px solid #eeeeee;
+  border-top-style: none;
 }
 /* убираем дефолтные отступы */
 /* задаем отступ снизу заголовку карточки */
