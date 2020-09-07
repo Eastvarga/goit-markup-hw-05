@@ -61,7 +61,7 @@
         <!-- div hero -->
         <div class="hero-container">
           <h1 class="hero-title">Эфективные решения для вашего бизнеса</h1>
-          <a class="hero-button" href="">Заказать услугу</a>
+          <button class="hero-button" data-modal-open>Заказать услугу</button>
         </div>
         <!-- </div> -->
       </section>
@@ -426,6 +426,21 @@
         </div>
       </div>
     </footer>
+    <!-- modal window -->
+    <!-- modal background -->
+    <div class="backdrop is-hidden" data-modal>
+      <!-- modal form -->
+      <div class="modal">
+        <!-- close button -->
+        <button class="button-modal" data-modal-close></button>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+          praesentium inventore voluptatibus hic dolor, reprehenderit veritatis
+          deserunt placeat quia vitae minus dolorem nemo velit ipsum distinctio
+          animi possimus odit?
+        </p>
+      </div>
+    </div>
     <script src="./js/modal.js"></script>
   </body>
 </html>
