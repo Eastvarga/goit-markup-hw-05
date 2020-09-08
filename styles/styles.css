@@ -41,6 +41,8 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  /* fixed-header compinsation */
+  padding-top: 80px;
 }
 img {
   display: block;
@@ -60,6 +62,11 @@ a {
 }
 /* header */
 .header {
+  /* fixed header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
   /* центрируем элементы в хедере по вертикали, 
  добавляем паддинги уменьшены отступы на ширину border-top и border-bottom*/
   align-items: center;
@@ -83,6 +90,7 @@ a {
 
   margin: 0 auto;
 }
+
 /* создаем флекс элементы,
  даем возможность переноса элементов на другую строку */
 .flex {
@@ -740,7 +748,7 @@ a {
 /* background modal */
 .backdrop {
   position: fixed;
-
+  z-index: 4;
   left: 0;
   right: 0;
   bottom: 0;
@@ -791,33 +799,32 @@ a {
 .button-modal::after {
   content: "";
   display: block;
+  align-self: center;
   position: absolute;
-  top: 50%;
+  top: calc(50% - 1px);
   left: 0;
   margin: 0;
   width: 50%;
   height: 3px;
-  background-color: rgb(161, 19, 19);
-  transform: translate(50%, 50%) rotate(45deg);
+  background-color: #000;
+  transform: translateX(50%) rotate(45deg);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-modal::before {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
+  top: calc(50% - 1px);
   left: 0;
   margin: 0;
   width: 50%;
   height: 3px;
   background-color: #000;
-  transform: translate(50%, 50%) rotateZ(-45deg);
+  transform: translateX(50%) rotateZ(-45deg);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.button-modal:hover::after {
-  transform: translate(50%, -50%) rotateZ(0deg);
-}
+/* X animation */
+.button-modal:hover::after,
 .button-modal:hover::before {
-  transform: translate(50%, 50%) rotateZ(0deg);
+  transform: translateX(50%) rotateZ(0deg);
 }
