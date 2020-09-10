@@ -32,6 +32,8 @@ html {
   --footer-link-color: rgba(255, 255, 255, 0.6);
   --hero-gradient-color: rgba(47, 48, 58, 0.4);
   --footer-icon-bg-color: rgba(255, 255, 255, 0.1);
+  --time-animation: 250ms;
+  --function-animation: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   background-color: var(--white-color);
@@ -168,11 +170,11 @@ a {
   background: var(--accent-color);
   border-radius: 2px;
   opacity: 0;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--time-animation) var(--function-animation);
 }
 /* animation for links */
 .link {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-animation) var(--function-animation);
 }
 /* header, footer links hover, focus цвет при наведении, фокусе  */
 .current,
@@ -248,7 +250,7 @@ a {
   letter-spacing: 0.06em;
   text-align: center;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animation) var(--function-animation);
 }
 /* цвет при ховере, фокусе согласно макета */
 .hero-button:hover,
@@ -436,14 +438,14 @@ a {
 .social-link {
   color: var(--icon-color);
   background-color: var(--white-color);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-animation) var(--function-animation),
+    background-color var(--time-animation) var(--function-animation);
 }
 /* цвет иконок в футере */
 .follow-link {
   color: var(--white-color);
   background-color: var(--footer-icon-bg-color);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--time-animation) var(--function-animation);
 }
 /* отступы для иконок-ссылок */
 .social .item:not(:nth-child(4n + 1)),
@@ -469,8 +471,8 @@ a {
   justify-content: center;
   align-items: center;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--time-animation) var(--function-animation),
+    border-color var(--time-animation) var(--function-animation);
 }
 
 /* цвет иконок при ховере */
@@ -623,10 +625,8 @@ a {
   font-size: 16px;
   line-height: 1.62;
   letter-spacing: 0.03em;
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* animation */
+  transition: all var(--time-animation) var(--function-animation);
 }
 /* задаем отступы для всех кроме последней кнопок*/
 .filter-list .item:not(:last-child) {
@@ -656,7 +656,7 @@ a {
   width: 100%;
   background-color: var(--white-color);
   box-shadow: none;
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--time-animation) var(--function-animation);
 }
 /* тумба для картинок с описанием */
 .card-img {
@@ -670,7 +670,7 @@ a {
   bottom: -100%;
   /* начальная позиция анимации */
   transform: translateY(0%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animation) var(--function-animation);
 
   height: 100%;
   width: 100%;
@@ -756,7 +756,7 @@ a {
   background-color: rgba(0, 0, 0, 0.2);
 
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--time-animation) var(--function-animation);
 }
 /* modal form */
 .modal {
@@ -774,15 +774,15 @@ a {
 
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--time-animation) var(--function-animation),
+    transform var(--time-animation) var(--function-animation);
 }
 /* window animation */
 .backdrop.is-hidden .modal {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
 }
-
+/* modal window button exit */
 .button-modal {
   position: absolute;
   top: 8px;
@@ -808,7 +808,7 @@ a {
   height: 3px;
   background-color: #000;
   transform: translateX(50%) rotate(45deg);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animation) var(--function-animation);
 }
 .button-modal::before {
   content: "";
@@ -821,7 +821,7 @@ a {
   height: 3px;
   background-color: #000;
   transform: translateX(50%) rotateZ(-45deg);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--time-animation) var(--function-animation);
 }
 /* X animation */
 .button-modal:hover::after,
